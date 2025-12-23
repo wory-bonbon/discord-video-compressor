@@ -268,219 +268,119 @@
         opacity: 0.5;
         cursor: not-allowed;
         transform: none;
+        box-shadow: none;
       }
 
-      /* ===== 音声削除トグル ===== */
-      .toggle-item {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-      }
-      .toggle-item label {
-        font-size: 11px;
-        font-weight: 600;
-        color: #6b7280;
-        margin-bottom: 6px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
-      .toggle-switch {
-        position: relative;
-        width: 52px;
-        height: 42px;
-        display: flex;
-        align-items: center;
-      }
-      .toggle-switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-      }
-      .toggle-slider {
-        position: absolute;
-        cursor: pointer;
-        top: 50%;
-        transform: translateY(-50%);
-        left: 0;
-        width: 48px;
-        height: 26px;
-        background-color: #e5e7eb;
-        border-radius: 26px;
-        transition: 0.2s;
-      }
-      .toggle-slider:before {
-        position: absolute;
-        content: "";
-        height: 20px;
-        width: 20px;
-        left: 3px;
-        top: 3px;
-        background-color: white;
-        border-radius: 50%;
-        transition: 0.2s;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-      }
-      .toggle-switch input:checked + .toggle-slider {
-        background: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
-      }
-      .toggle-switch input:checked + .toggle-slider:before {
-        transform: translateX(22px);
-      }
-      .toggle-label-text {
-        font-size: 10px;
-        color: #9ca3af;
-        margin-top: 4px;
-        min-height: 14px;
-        white-space: nowrap;
-      }
-      .toggle-switch input:checked ~ .toggle-label-text {
-        color: #ef4444;
-      }
-
-      /* ===== ステータス／情報 ===== */
-      .status-bar {
-        margin-top: 16px;
-        padding: 14px 18px;
-        background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
-        border-radius: 10px;
-        font-size: 13px;
-        color: #4b5563;
-        text-align: center;
-        border: 1px solid rgba(0,0,0,0.04);
-      }
-      .status-bar.error {
-        background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
-        color: #b91c1c;
-        border-color: rgba(185, 28, 28, 0.1);
-      }
-      .size-info {
-        margin-top: 10px;
-        font-size: 13px;
-        color: #6b7280;
-        text-align: center;
-        font-weight: 500;
-      }
-      .re-preview-hint {
-        margin-top: 8px;
-        font-size: 12px;
-        color: #f59e0b;
-        text-align: center;
-        font-weight: 500;
-      }
-      .download-link {
-        display: none;
-        margin: 16px auto 0;
-        padding: 14px 32px;
-        background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
-        color: #fff;
-        text-decoration: none;
-        border-radius: 10px;
-        font-weight: 600;
-        font-size: 15px;
-        text-align: center;
-        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
-        transition: transform 0.1s, box-shadow 0.15s;
-      }
-      .download-link:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
-      }
-
-      /* ===== 情報カード ===== */
+      /* ===== 目安表示 ===== */
       .info-cards {
-        margin-top: 24px;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        margin-top: 16px;
+        display: flex;
         gap: 16px;
       }
+      @media (max-width: 900px) {
+        .info-cards {
+          flex-direction: column;
+        }
+      }
       .info-card {
+        flex: 1;
+        font-size: 12px;
+        color: #6b7280;
         background: #fff;
+        padding: 14px 18px;
         border-radius: 12px;
-        padding: 18px 20px;
         border: 1px solid rgba(0,0,0,0.06);
         box-shadow: 0 1px 3px rgba(0,0,0,0.04);
       }
-      .info-card h3 {
+      .info-card-title {
+        color: #374151;
+        font-weight: 600;
+        margin-bottom: 8px;
         font-size: 13px;
-        font-weight: 700;
-        color: #374151;
-        margin: 0 0 12px 0;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-      .info-card table {
-        width: 100%;
-        font-size: 12px;
-        border-collapse: collapse;
-      }
-      .info-card th,
-      .info-card td {
-        padding: 6px 8px;
-        text-align: left;
-        border-bottom: 1px solid #f3f4f6;
-      }
-      .info-card th {
-        color: #6b7280;
-        font-weight: 500;
-      }
-      .info-card td {
-        color: #374151;
       }
       .info-card ul {
-        margin: 0;
+        margin: 8px 0 0 0;
         padding-left: 18px;
-        font-size: 12px;
-        color: #4b5563;
-        line-height: 1.7;
+      }
+      .info-card li {
+        margin-bottom: 4px;
+        color: #6b7280;
+      }
+      .info-card .note {
+        color: #9ca3af;
+        font-size: 11px;
+        margin-top: 8px;
       }
 
-      /* ===== フッター ===== */
-      footer {
-        margin-top: 32px;
-        padding-top: 16px;
-        border-top: 1px solid #e5e7eb;
-        font-size: 12px;
-        color: #9ca3af;
-        text-align: center;
+      /* ステータスカード内 */
+      .status-content {
+        min-height: 60px;
       }
-      footer a {
-        color: #7c3aed;
+      #status {
+        font-size: 13px;
+        font-weight: 500;
+        white-space: pre-line;
+        color: #374151;
+        margin-bottom: 8px;
+      }
+      #sizeInfo {
+        font-size: 13px;
+        color: #6b7280;
+        margin-bottom: 12px;
+      }
+      #downloadLink {
+        display: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+        color: #fff;
         text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+        box-shadow: 0 2px 8px rgba(124, 58, 237, 0.25);
+        transition: transform 0.1s, box-shadow 0.15s;
       }
-      footer a:hover {
-        text-decoration: underline;
+      #downloadLink:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+      }
+
+      /* hidden用 */
+      input[type="file"] {
+        display: none;
       }
     </style>
   </head>
   <body>
-    <!-- ヘッダー -->
+    <!-- ===== ヘッダー ===== -->
     <header>
       <h1>Discord用 動画カット＆圧縮ツール</h1>
       <p>
-        <span class="drop-hint">画面全体にドラッグ＆ドロップ</span>、
-        または <a href="#" id="fileSelectLink">ファイルを選択</a>
-        <input type="file" id="fileInput" accept="video/*" hidden />
+        <span class="drop-hint">画面に動画をドロップ</span>、または
+        <a href="#" id="fileSelectLink">クリックして選択</a>。
+        切り出し範囲とパラメータを指定して録画・圧縮します（出力: WebM）
       </p>
     </header>
+    <input type="file" id="fileInput" accept="video/*" />
 
-    <!-- 動画セクション -->
-    <div class="video-container" id="videoContainer" hidden>
-      <!-- 元動画パネル -->
+    <!-- ===== 動画セクション ===== -->
+    <div id="videoContainer" class="video-container" hidden>
+      <!-- オリジナル側 -->
       <div class="video-panel original">
-        <div class="video-panel-label">📹 元動画</div>
+        <div class="video-panel-label">📹 オリジナル</div>
         <div class="video-wrapper">
           <video id="video" controls></video>
         </div>
-        <!-- タイムラインマーカー -->
         <div class="timeline-section">
-          <div class="timeline-container" id="timeline">
-            <div class="timeline-progress" id="timelineProgress"></div>
-            <div class="timeline-marker start" id="startMarker">▼
-              <span class="timeline-marker-label" id="startMarkerLabel">0:00</span>
+          <div id="timeline" class="timeline-container">
+            <div id="timelineProgress" class="timeline-progress"></div>
+            <div id="startMarker" class="timeline-marker start" title="スタート位置">
+              ▼
+              <span class="timeline-marker-label">0s</span>
             </div>
-            <div class="timeline-marker end" id="endMarker">▼
-              <span class="timeline-marker-label" id="endMarkerLabel">0:00</span>
+            <div id="endMarker" class="timeline-marker end" title="エンド位置">
+              ▼
+              <span class="timeline-marker-label">0s</span>
             </div>
           </div>
           <div class="timeline-time">
@@ -489,225 +389,210 @@
           </div>
         </div>
       </div>
-      <!-- プレビューパネル -->
+
+      <!-- プレビュー側 -->
       <div class="video-panel preview">
-        <div class="video-panel-label">✨ プレビュー</div>
-        <div class="video-wrapper">
+        <div class="video-panel-label">▶ プレビュー出力</div>
+        <div id="previewWrapper" class="video-wrapper">
           <video id="previewVideo" controls></video>
         </div>
       </div>
     </div>
 
-    <!-- コントロール -->
-    <div class="controls" id="controls" hidden>
+    <!-- ===== コントロール ===== -->
+    <div id="controls" class="controls" hidden>
       <div class="control-item">
         <label>スタート (秒)</label>
-        <input type="text" id="startTime" value="0" />
+        <input type="text" id="startTime" value="0" inputmode="decimal" />
         <span class="control-hint">ホイールで±1秒</span>
       </div>
       <div class="control-item">
         <label>エンド (秒)</label>
-        <input type="text" id="endTime" value="0" />
+        <input type="text" id="endTime" value="0" inputmode="decimal" />
         <span class="control-hint">ホイールで±1秒</span>
       </div>
       <div class="control-item">
-        <label>解像度</label>
+        <label>解像度 (幅)</label>
         <select id="resolution">
           <option value="original">オリジナル</option>
-          <option value="1920">1920px</option>
-          <option value="1280" selected>1280px</option>
-          <option value="960">960px</option>
-          <option value="640">640px</option>
-          <option value="480">480px</option>
+          <option value="1920">1920</option>
+          <option value="1280">1280</option>
+          <option value="960">960</option>
+          <option value="640">640</option>
+          <option value="480">480</option>
+          <option value="320">320</option>
         </select>
-        <span class="control-hint">スクロールで変更</span>
+        <span class="control-hint"></span>
       </div>
       <div class="control-item">
-        <label>ビットレート</label>
+        <label>ビットレート (kbps)</label>
         <select id="bitrate">
-          <option value="8000">8,000 kbps</option>
-          <option value="6000">6,000 kbps</option>
-          <option value="4000" selected>4,000 kbps</option>
-          <option value="2500">2,500 kbps</option>
-          <option value="1500">1,500 kbps</option>
-          <option value="1000">1,000 kbps</option>
+          <option value="8000">8000</option>
+          <option value="6000">6000</option>
+          <option value="5000">5000</option>
+          <option value="4000">4000</option>
+          <option value="3000">3000</option>
+          <option value="2500">2500</option>
+          <option value="2000">2000</option>
+          <option value="1600">1600</option>
+          <option value="1500">1500</option>
+          <option value="1200">1200</option>
+          <option value="1000">1000</option>
+          <option value="800">800</option>
+          <option value="600">600</option>
         </select>
-        <span class="control-hint">スクロールで変更</span>
+        <span class="control-hint"></span>
       </div>
       <div class="control-item">
         <label>再生速度</label>
         <select id="playbackSpeed">
-          <option value="0.5">0.5x</option>
+          <option value="0.5">0.5x (スロー)</option>
           <option value="0.75">0.75x</option>
-          <option value="1" selected>1x</option>
+          <option value="1" selected>1x (通常)</option>
           <option value="1.25">1.25x</option>
           <option value="1.5">1.5x</option>
-          <option value="2">2x</option>
+          <option value="2">2x (倍速)</option>
         </select>
-        <span class="control-hint">タイムラプス風</span>
+        <span class="control-hint">※音声ピッチも変化</span>
       </div>
-      <div class="control-item toggle-item">
-        <label>音声</label>
-        <label class="toggle-switch">
-          <input type="checkbox" id="muteAudio" />
-          <span class="toggle-slider"></span>
-        </label>
-        <span class="toggle-label-text" id="muteLabel">🔊 音声あり</span>
-      </div>
-      <div class="control-item" style="margin-left: auto;">
+      <div class="control-item">
         <label>&nbsp;</label>
-        <button id="previewBtn" disabled>▶ プレビュー</button>
+        <button id="previewBtn" disabled>プレビュー</button>
         <span class="control-hint"></span>
       </div>
     </div>
 
-    <!-- ステータス -->
-    <div class="status-bar" id="statusBar">動画ファイルをドロップしてください。</div>
-    <div class="size-info" id="sizeInfo"></div>
-    <div class="re-preview-hint" id="rePreviewHint" hidden>💡 音声削除を反映するには再度プレビューしてください</div>
-    <a class="download-link" id="downloadLink" download="discord_clip.webm">⬇ ダウンロード</a>
-
-    <!-- 情報カード -->
-    <div class="info-cards" id="infoCards" hidden>
+    <!-- ===== 下部3カードレイアウト ===== -->
+    <div id="infoCards" class="info-cards" hidden>
+      <!-- 目安カード -->
       <div class="info-card">
-        <h3>📊 10MB制限の目安</h3>
-        <table>
-          <tr><th>長さ</th><th>解像度</th><th>ビットレート</th></tr>
-          <tr><td>8秒</td><td>1920px</td><td>6,000〜8,000 kbps</td></tr>
-          <tr><td>15秒</td><td>1280px</td><td>4,000〜5,000 kbps</td></tr>
-          <tr><td>30秒</td><td>960px</td><td>2,000〜2,500 kbps</td></tr>
-          <tr><td>45秒</td><td>640px</td><td>1,200〜1,600 kbps</td></tr>
-        </table>
-      </div>
-      <div class="info-card">
-        <h3>💡 使い方のヒント</h3>
+        <div class="info-card-title">📊 Discord 無料プラン (10MB制限) の目安</div>
         <ul>
-          <li>タイムラインの🔽マーカーをドラッグして範囲指定</li>
-          <li>各入力欄でマウスホイールを回すと値を調整可能</li>
-          <li>プレビューで確認後、ダウンロードボタンで保存</li>
-          <li>音声削除でファイルサイズを更に削減可能</li>
+          <li>8 秒: 幅 1920px / 6,000～8,000 kbps</li>
+          <li>15 秒: 幅 1280px / 4,000～5,000 kbps</li>
+          <li>30 秒: 幅 960px / 2,000～2,500 kbps</li>
+          <li>45 秒: 幅 640px / 1,200～1,600 kbps</li>
         </ul>
+        <p class="note">※ 音声128～160kbps想定</p>
+      </div>
+
+      <!-- ステータスカード -->
+      <div class="info-card">
+        <div class="info-card-title">⚡ ステータス</div>
+        <div class="status-content">
+          <div id="status">動画を読み込んでください</div>
+          <div id="sizeInfo"></div>
+          <a id="downloadLink" download="output.webm">ダウンロード</a>
+        </div>
+      </div>
+
+      <!-- 使い方カード -->
+      <div class="info-card">
+        <div class="info-card-title">📖 使い方</div>
+        <ol style="margin: 0; padding-left: 18px;">
+          <li>動画を画面にドロップ</li>
+          <li>▼マーカーまたは入力欄で範囲指定</li>
+          <li>解像度・ビットレート・速度を設定</li>
+          <li>「プレビュー」で録画開始</li>
+          <li>完了後「ダウンロード」</li>
+        </ol>
       </div>
     </div>
 
-    <!-- フッター -->
-    <footer>
-      出力形式: WebM (VP9/VP8 + Opus) ｜ 完全ローカル処理 ｜
-      <a href="https://github.com/wory-bonbon/discord-video-compressor" target="_blank">GitHub</a>
-    </footer>
-
     <script>
+      // ========== 要素取得 ==========
+      const fileInput = document.getElementById('fileInput');
+      const fileSelectLink = document.getElementById('fileSelectLink');
+      const videoContainer = document.getElementById('videoContainer');
       const video = document.getElementById('video');
-      const previewVideo = document.getElementById('previewVideo');
+      const controls = document.getElementById('controls');
       const startTimeInput = document.getElementById('startTime');
       const endTimeInput = document.getElementById('endTime');
       const resolutionSelect = document.getElementById('resolution');
       const bitrateSelect = document.getElementById('bitrate');
       const playbackSpeedSelect = document.getElementById('playbackSpeed');
-      const muteAudioCheckbox = document.getElementById('muteAudio');
-      const muteLabel = document.getElementById('muteLabel');
       const previewBtn = document.getElementById('previewBtn');
-      const statusBar = document.getElementById('statusBar');
+      const previewVideo = document.getElementById('previewVideo');
+      const statusEl = document.getElementById('status');
       const sizeInfoEl = document.getElementById('sizeInfo');
       const downloadLink = document.getElementById('downloadLink');
-      const videoContainer = document.getElementById('videoContainer');
-      const controls = document.getElementById('controls');
       const infoCardsEl = document.getElementById('infoCards');
-      const durationDisplay = document.getElementById('durationDisplay');
-      const fileInput = document.getElementById('fileInput');
-      const fileSelectLink = document.getElementById('fileSelectLink');
 
+      // タイムライン関連
       const timeline = document.getElementById('timeline');
       const timelineProgress = document.getElementById('timelineProgress');
       const startMarker = document.getElementById('startMarker');
       const endMarker = document.getElementById('endMarker');
-      const startMarkerLabel = document.getElementById('startMarkerLabel');
-      const endMarkerLabel = document.getElementById('endMarkerLabel');
-      const rePreviewHint = document.getElementById('rePreviewHint');
+      const durationDisplay = document.getElementById('durationDisplay');
 
       let videoDuration = 0;
       let recording = false;
-      let lastPreviewHadAudio = false;
-
-      // ========== 音声トグル ==========
-      muteAudioCheckbox.addEventListener('change', () => {
-        if (muteAudioCheckbox.checked) {
-          muteLabel.textContent = '🔇 音声削除';
-          muteLabel.style.color = '#ef4444';
-          // 音声ありでプレビュー済みなら再プレビューを促す
-          if (lastPreviewHadAudio) {
-            rePreviewHint.hidden = false;
-          }
-        } else {
-          muteLabel.textContent = '🔊 音声あり';
-          muteLabel.style.color = '#9ca3af';
-          rePreviewHint.hidden = true;
-        }
-      });
 
       // ========== ユーティリティ ==========
-      function formatTime(sec) {
-        const m = Math.floor(sec / 60);
-        const s = Math.floor(sec % 60);
-        return `${m}:${s.toString().padStart(2, '0')}`;
+      function setStatus(msg, error = false) {
+        statusEl.textContent = msg;
+        statusEl.style.color = error ? '#dc2626' : '#374151';
       }
 
       function humanSize(bytes) {
-        if (bytes < 1024) return bytes + ' B';
-        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
         return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
       }
 
-      function setStatus(msg, isError = false) {
-        statusBar.textContent = msg;
-        statusBar.classList.toggle('error', isError);
+      function formatTime(seconds) {
+        const m = Math.floor(seconds / 60);
+        const s = Math.floor(seconds % 60);
+        return `${m}:${s.toString().padStart(2, '0')}`;
       }
 
+      // ========== マーカー位置更新 ==========
       function updateMarkers() {
         const start = parseFloat(startTimeInput.value) || 0;
         const end = parseFloat(endTimeInput.value) || videoDuration;
-        if (videoDuration <= 0) return;
-
-        const startPercent = (start / videoDuration) * 100;
-        const endPercent = (end / videoDuration) * 100;
-
-        startMarker.style.left = startPercent + '%';
-        endMarker.style.left = endPercent + '%';
-
-        startMarkerLabel.textContent = formatTime(start);
-        endMarkerLabel.textContent = formatTime(end);
+        
+        if (videoDuration > 0) {
+          const startPercent = (start / videoDuration) * 100;
+          const endPercent = (end / videoDuration) * 100;
+          
+          startMarker.style.left = `${Math.min(Math.max(startPercent, 0), 100)}%`;
+          endMarker.style.left = `${Math.min(Math.max(endPercent, 0), 100)}%`;
+          
+          startMarker.querySelector('.timeline-marker-label').textContent = `${start.toFixed(1)}s`;
+          endMarker.querySelector('.timeline-marker-label').textContent = `${end.toFixed(1)}s`;
+        }
       }
 
       function updateTimelineProgress() {
-        if (videoDuration <= 0) return;
-        const percent = (video.currentTime / videoDuration) * 100;
-        timelineProgress.style.width = percent + '%';
+        if (videoDuration > 0) {
+          const percent = (video.currentTime / videoDuration) * 100;
+          timelineProgress.style.width = `${percent}%`;
+        }
       }
 
-      // ========== ホイール操作 ==========
-      function attachWheelToInput(el, min, maxFn, step) {
-        el.addEventListener('wheel', (e) => {
+      // ========== ホイールで値変更 ==========
+      function attachWheelToInput(input, min, getMax, step = 1) {
+        input.addEventListener('wheel', (e) => {
           e.preventDefault();
-          let val = parseFloat(el.value) || 0;
-          const max = typeof maxFn === 'function' ? maxFn() : maxFn;
+          let val = parseFloat(input.value) || 0;
           if (e.deltaY < 0) {
-            val = Math.min(max, val + step);
+            val = Math.min(val + step, getMax());
           } else {
-            val = Math.max(min, val - step);
+            val = Math.max(val - step, min);
           }
-          el.value = val.toFixed(1);
-          el.dispatchEvent(new Event('change'));
+          input.value = val.toFixed(1);
+          validateTimes();
+          updateMarkers();
         });
       }
 
       function attachScrollSelect(select) {
         select.addEventListener('wheel', (e) => {
           e.preventDefault();
+          const options = select.options;
           let idx = select.selectedIndex;
-          if (e.deltaY < 0) {
-            if (idx > 0) idx--;
+          if (e.deltaY > 0) {
+            if (idx < options.length - 1) idx++;
           } else {
-            if (idx < select.options.length - 1) idx++;
+            if (idx > 0) idx--;
           }
           select.selectedIndex = idx;
         });
@@ -752,8 +637,6 @@
         setStatus('動画を読み込みました。範囲とパラメータを設定してください。');
         sizeInfoEl.textContent = '';
         downloadLink.style.display = 'none';
-        lastPreviewHadAudio = false;
-        rePreviewHint.hidden = true;
       }
 
       // ========== バリデーション ==========
@@ -829,7 +712,6 @@
         const start = parseFloat(startTimeInput.value) || 0;
         const end = parseFloat(endTimeInput.value) || videoDuration;
         const playbackSpeed = parseFloat(playbackSpeedSelect.value) || 1;
-        const muteAudio = muteAudioCheckbox.checked;
         
         let width;
         if (resolutionSelect.value === 'original') {
@@ -842,7 +724,6 @@
         
         recording = true;
         previewBtn.disabled = true;
-        rePreviewHint.hidden = true;
         setStatus('録画を開始します…');
 
         const canvas = document.createElement('canvas');
@@ -851,13 +732,9 @@
         const ctx = canvas.getContext('2d');
 
         const canvasStream = canvas.captureStream();
-        
-        // 音声トラック追加（muteがOFFの場合のみ）
-        if (!muteAudio) {
-          const audioTracks = video.captureStream().getAudioTracks();
-          if (audioTracks.length > 0) {
-            canvasStream.addTrack(audioTracks[0]);
-          }
+        const audioTracks = video.captureStream().getAudioTracks();
+        if (audioTracks.length > 0) {
+          canvasStream.addTrack(audioTracks[0]);
         }
 
         let mimeType = 'video/webm';
@@ -897,9 +774,7 @@
 
           downloadLink.href = url;
           downloadLink.style.display = 'inline-block';
-          
-          const audioStatus = muteAudio ? ' (音声なし)' : '';
-          sizeInfoEl.textContent = '出力サイズ: ' + humanSize(blob.size) + audioStatus;
+          sizeInfoEl.textContent = '出力サイズ: ' + humanSize(blob.size);
 
           if (sizeMB <= 10) {
             setStatus('プレビュー完了。Discord にアップできます。');
@@ -907,9 +782,6 @@
             setStatus('プレビュー完了しましたが 10MB を超えています。パラメータを調整してください。', true);
           }
 
-          // 音声ありで録画したかを記録
-          lastPreviewHadAudio = !muteAudio;
-          
           recording = false;
           previewBtn.disabled = false;
         };
@@ -921,9 +793,6 @@
         video.playbackRate = playbackSpeed;
         video.currentTime = start;
         
-        // 音声ミュート設定（録画中は元動画の音を消す）
-        video.muted = muteAudio;
-        
         setStatus(`シーク中…`);
         
         video.onseeked = () => {
@@ -932,8 +801,7 @@
           recorder.start();
           video.play();
           
-          const audioInfo = muteAudio ? '音声なし' : '音声あり';
-          setStatus(`録画中… (約${expectedTime.toFixed(1)}秒かかります / ${audioInfo})`);
+          setStatus(`録画中… (約${expectedTime.toFixed(1)}秒かかります)`);
           
           function draw() {
             ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
@@ -941,7 +809,6 @@
               recorder.stop();
               video.pause();
               video.playbackRate = 1;
-              video.muted = false;
               return;
             }
             requestAnimationFrame(draw);
